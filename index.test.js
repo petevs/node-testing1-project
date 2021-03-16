@@ -49,12 +49,20 @@ describe('[Exercise 4] Counter', () => {
   })
   it('[6] the FIRST CALL of counter.countDown returns the initial count', () => {
     // ✨ test away
+    expect(counter.countDown()).toBe(3)
+
   })
   it('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
     // ✨ test away
+    counter.countDown()
+    expect(counter.countDown()).toBe(2)
   })
   it('[8] the count eventually reaches zero but does not go below zero', () => {
     // ✨ test away
+    for (let i = 0; i < 10 ; i++){
+      counter.countDown()
+    }
+    expect(counter.countDown()).toBe(0)
   })
 })
 
