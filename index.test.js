@@ -119,15 +119,31 @@ describe('[Exercise 6] Car', () => {
   })
   it('[15] driving the car returns the updated odometer', () => {
     // ✨ test away
+    focus.drive(20)
+    expect(focus.odometer).toBe(20)
   })
   it('[16] driving the car uses gas', () => {
     // ✨ test away
+    focus.drive(30)
+    //Miles per gallon 30 miles uses 1 gallon
+    //Tank started at 20 should be 19 gallons left
+    expect(focus.tank).toBe(19)
   })
   it('[17] refueling allows to keep driving', () => {
     // ✨ test away
+    focus.drive(700)
+    expect(focus.odometer).toBe(600)
+    focus.refuel(20)
+    focus.drive(100)
+    expect(focus.odometer).toBe(700)
   })
   it('[18] adding fuel to a full tank has no effect', () => {
     // ✨ test away
+    focus.refuel(10)
+    expect(focus.tank).toBe(20)
+    focus.drive(600)
+    focus.refuel(30)
+    expect(focus.tank).toBe(20)
   })
 })
 
